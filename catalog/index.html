@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MachineCheck ระบบตรวจเครื่องจักรบน Google Sheets พร้อม Dashboard, Smart Insights และ Work Orders">
+  <title>MachineCheck — Factory Studio Catalog</title>
+  <style>
+    :root{--ink:#17333b;--muted:#62797d;--brand:#548f99;--green:#4f8668;--purple:#9b69c7;--line:rgba(67,113,119,.16)}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,"Noto Sans Thai",sans-serif;color:var(--ink);background:radial-gradient(circle at 85% 0,#d3eadf,transparent 30%),linear-gradient(145deg,#8ab2c1,#eaf4ef 43%,#d4e8df);min-height:100vh}
+    a{text-decoration:none}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}.logo{font-weight:800;font-size:20px}.tag{font-size:12px;padding:7px 11px;border:1px solid var(--line);border-radius:99px;background:#ffffff8c}
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:56px 0 72px}.eyebrow{color:var(--brand);font-weight:750}.hero h1{font-size:clamp(44px,7vw,82px);line-height:.98;margin:16px 0 22px;letter-spacing:-2px}.hero p{font-size:20px;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;padding:13px 20px;border-radius:12px;background:var(--ink);color:#fff;font-weight:700}.btn.alt{background:#ffffffa8;color:var(--ink);border:1px solid var(--line)}.cover{width:100%;border-radius:24px;box-shadow:0 28px 70px #365f6650;border:1px solid #ffffffa8}
+    .section{padding:70px 0}.section h2{font-size:38px;margin:0 0 22px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#ffffffa6;border:1px solid #ffffffcc;border-radius:18px;padding:24px;box-shadow:0 12px 35px #315e6214}.card b{display:block;font-size:18px;margin-bottom:8px}.card p{color:var(--muted);margin:0}.steps{counter-reset:step}.step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;margin-bottom:16px}.notice{background:#17333b;color:#fff;border-radius:24px;padding:36px;margin:70px 0}.notice p{color:#c8dcdf}.footer{padding:28px 0 44px;color:var(--muted);font-size:13px}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:28px}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}.section{padding:48px 0}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><div class="logo">MachineCheck</div><div class="tag">Digital Product · v1.0.0</div></nav>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Smart Inspection for Factory Teams</div>
+          <h1>งานตรวจเครื่อง<br>ครบในระบบเดียว</h1>
+          <p>บันทึกค่ามิเตอร์ แนบรูป ดูแนวโน้ม สร้าง Work Order และเก็บทุกอย่างใน Google Sheets ของคุณเอง</p>
+          <div class="actions"><a class="btn app-link" href="#install" data-app-url="__APP_URL__" target="_blank" rel="noopener">ทดลองใช้งาน</a><a class="btn alt" href="#install">ดูวิธีติดตั้ง</a></div>
+        </div>
+        <img class="cover" src="../assets/machinecheck-cover.jpg" alt="ภาพแนะนำ MachineCheck">
+      </section>
+      <section class="section"><h2>สิ่งที่ได้รับ</h2><div class="grid">
+        <div class="card"><b>Dashboard พร้อมใช้</b><p>KPI, กราฟแนวโน้ม และรายการตรวจล่าสุดแบบ responsive</p></div>
+        <div class="card"><b>Google-owned data</b><p>ข้อมูลและรูปภาพอยู่ใน Google Drive ของผู้ซื้อ ไม่ผูกกับ server ของผู้ขาย</p></div>
+        <div class="card"><b>Smart Insights</b><p>วิเคราะห์ pattern แบบ rule-based พร้อมสร้าง Work Order โดยไม่มีค่า AI API</p></div>
+        <div class="card"><b>Source code</b><p>ปรับแบรนด์ รายการเครื่อง และเกณฑ์มาตรฐานได้</p></div>
+        <div class="card"><b>คู่มือและไลเซนส์</b><p>มีคู่มือติดตั้ง เช็กลิสต์ส่งมอบ และ Commercial License template</p></div>
+        <div class="card"><b>Auto update</b><p>รองรับ GitHub Actions เพื่อทดสอบและ deploy ทุกครั้งที่อัปเดต main</p></div>
+      </div></section>
+      <section class="section" id="install"><h2>ติดตั้งใน 4 ขั้นตอน</h2><div class="grid steps">
+        <div class="card step"><b>สร้าง Apps Script</b><p>สร้างโปรเจกต์ในบัญชี Google ของผู้ใช้งาน</p></div>
+        <div class="card step"><b>อัปโหลดไฟล์</b><p>ใช้ clasp push เพื่อนำ source code เข้าโปรเจกต์</p></div>
+        <div class="card step"><b>สร้างฐานข้อมูล</b><p>รัน setupInspectionSystem หนึ่งครั้งเพื่อสร้าง Sheets และ Drive</p></div>
+      </div></section>
+      <section class="notice"><h2>พร้อมปรับให้เข้ากับโรงงานของคุณ</h2><p>แก้ชื่อเครื่องจักร พื้นที่ ค่า Min/Max ผู้ตรวจ และอีเมลแจ้งเตือนได้จาก Google Sheets โดยตรง</p><a class="btn alt app-link" href="#install" data-app-url="__APP_URL__" target="_blank" rel="noopener">เปิดระบบตัวอย่าง</a></section>
+    </main>
+    <footer class="footer">© 2026 Factory Studio · MachineCheck v1.0.0 · Smart Insights เป็น rule-based analytics</footer>
+  </div>
+  <script>document.querySelectorAll('.app-link').forEach(function(link){var url=link.dataset.appUrl;if(/^https:\/\//.test(url)){link.href=url;}else{link.removeAttribute('target');}});</script>
+</body>
+</html>
